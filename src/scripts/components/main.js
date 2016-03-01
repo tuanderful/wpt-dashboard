@@ -1,16 +1,13 @@
-var WptDashboardApp = require('./WptDashboardApp');
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+const WptDashboardApp = require('./WptDashboardApp');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const Router = require('react-router').Router;
+const Route = require('react-router').Route;
+// const Link = require('react-router').Link;
+const browserHistory = require('react-router').browserHistory;
 
-var content = document.getElementById('content');
-
-var Routes = (
-  <Route handler={WptDashboardApp}>
-    <Route name="/" handler={WptDashboardApp}/>
-  </Route>
-);
-
-Router.run(Routes, function (Handler) {
-  React.render(<Handler/>, content);
-});
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={WptDashboardApp} />
+  </Router>
+), document.getElementById('content'));
