@@ -19,7 +19,7 @@ module.exports = {
   devtool: false,
   entry: [
       'webpack/hot/only-dev-server',
-      './src/scripts/components/main.js'
+      './src/scripts/main.js'
   ],
 
   stats: {
@@ -43,7 +43,14 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'react-hot!jsx-loader?harmony'
+      loader: 'react-hot'
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel', // 'babel-loader' is also a legal name to reference
+      query: {
+        presets: ['react', 'es2015']
+      }
     }, {
       test: /\.scss/,
       loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'

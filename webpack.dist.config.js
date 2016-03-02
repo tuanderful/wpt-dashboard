@@ -18,7 +18,7 @@ module.exports = {
 
   debug: false,
   devtool: false,
-  entry: './src/scripts/components/main.js',
+  entry: './src/scripts/main.js',
 
   stats: {
     colors: true,
@@ -44,13 +44,16 @@ module.exports = {
     preLoaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'jsxhint'
+      loader: 'eslint-loader'
     }],
 
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'jsx-loader?harmony'
+      loader: 'babel', // 'babel-loader' is also a legal name to reference
+      query: {
+        presets: ['react', 'es2015']
+      }
     }, {
       test: /\.css$/,
       loader: 'style-loader!css-loader'
