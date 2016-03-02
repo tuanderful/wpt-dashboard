@@ -1,5 +1,5 @@
-const React = require('react');
-const ReactTransitionGroup = require('react-addons-transition-group');
+import React from 'react';
+import ReactTransitionGroup from 'react-addons-transition-group';
 
 // CSS
 require('../../../styles/normalize.css');
@@ -13,10 +13,11 @@ class WptDashboardApp extends React.Component {
       <div className="main">
         <ReactTransitionGroup transitionName="fade">
           <img src={imageURL} />
+          <span>hello world</span>
         </ReactTransitionGroup>
       </div>
     );
   }
 }
 
-module.exports = WptDashboardApp;
+export default WptDashboardApp;

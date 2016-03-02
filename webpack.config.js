@@ -19,7 +19,7 @@ module.exports = {
   devtool: false,
   entry: [
       'webpack/hot/only-dev-server',
-      './src/scripts/main.js'
+      './src/scripts/index.js'
   ],
 
   stats: {
